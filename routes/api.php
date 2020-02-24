@@ -19,6 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group(['prefix' => 'users'], function(){
+    Route::post('/IsEmailTaken', [
+        'uses' => 'UserController@isEmailTaken',
+        'as'   => 'users.isEmailTaken'
+    ]);
     
     Route::get('/predavaci', [
         'uses' => 'UserController@getPredavaci',
@@ -53,8 +57,8 @@ Route::group(['prefix' => 'users'], function(){
     ]);
 
     Route::patch('/{id}', [
-        'uses' => 'UserController@put',
-        'as'   => 'users.put'
+        'uses' => 'UserController@patch',
+        'as'   => 'users.patch'
     ]);
 
 
@@ -64,3 +68,108 @@ Route::group(['prefix' => 'users'], function(){
     ]);
 });
 
+
+
+
+Route::group(['prefix' => 'ucionice'], function(){
+    
+    Route::get('/', [
+        'uses' => 'UcioniceController@getAll',
+        'as'   => 'ucionice.getAll'
+    ]);
+
+    Route::get('/{id}', [
+        'uses' => 'UcioniceController@get',
+        'as'   => 'ucionice.get'
+    ]);
+
+
+    Route::post('/', [
+        'uses' => 'UcioniceController@post',
+        'as'   => 'ucionice.post'
+    ]);
+
+
+    Route::delete('/{id}', [
+        'uses' => 'UcioniceController@delete',
+        'as'   => 'ucionice.delete'
+    ]);
+
+    Route::patch('/{id}', [
+        'uses' => 'UcioniceController@patch',
+        'as'   => 'ucionice.patch'
+    ]);
+    
+});
+
+
+
+
+
+
+Route::group(['prefix' => 'tipovi-nastave'], function(){
+    
+    Route::get('/', [
+        'uses' => 'TipoviNastaveController@getAll',
+        'as'   => 'tipovi-nastave.getAll'
+    ]);
+
+    Route::get('/{id}', [
+        'uses' => 'TipoviNastaveController@get',
+        'as'   => 'tipovi-nastave.get'
+    ]);
+
+
+    Route::post('/', [
+        'uses' => 'TipoviNastaveController@post',
+        'as'   => 'tipovi-nastave.post'
+    ]);
+
+
+    Route::delete('/{id}', [
+        'uses' => 'TipoviNastaveController@delete',
+        'as'   => 'tipovi-nastave.delete'
+    ]);
+
+    Route::patch('/{id}', [
+        'uses' => 'TipoviNastaveController@patch',
+        'as'   => 'tipovi-nastave.patch'
+    ]);
+    
+});
+
+
+
+
+
+
+
+Route::group(['prefix' => 'razine-nastave'], function(){
+    
+    Route::get('/', [
+        'uses' => 'RazineNastaveController@getAll',
+        'as'   => 'razine-nastave.getAll'
+    ]);
+
+    Route::get('/{id}', [
+        'uses' => 'RazineNastaveController@get',
+        'as'   => 'razine-nastave.get'
+    ]);
+
+
+    Route::post('/', [
+        'uses' => 'RazineNastaveController@post',
+        'as'   => 'razine-nastave.post'
+    ]);
+
+
+    Route::delete('/{id}', [
+        'uses' => 'RazineNastaveController@delete',
+        'as'   => 'razine-nastave.delete'
+    ]);
+
+    Route::patch('/{id}', [
+        'uses' => 'RazineNastaveController@patch',
+        'as'   => 'razine-nastave.patch'
+    ]);
+});

@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public function isEmailTaken(Request $request) {
+        $user = User::where('email', '=', $request->input('email'))->first();
+        if($user){
+            return response()->json(true);
+        }
+        return response()->json(false);
+    }
 
     public function getPredavaci() 
     {
@@ -34,12 +42,22 @@ class UserController extends Controller
     }
 
     public function post(Request $request)
-    {
+    {/*
         $this->validate($request, [
             'email'    => 'email|required|unique:users',
             'password' => 'required|min:4',
             'role'     => 'required'
         ]);
+*/
+        $validator = Validator::make($request->all(), [
+            'email'    => 'email|required|unique:users',
+            'password' => 'required|min:4',
+            'role'     => 'required'
+        ]);
+
+        if($validator->fails()){
+            return response()->json($validator->messages()->first(), 500);
+        }
 
         try{
             $user = new User([
@@ -49,12 +67,19 @@ class UserController extends Controller
                 'email'    => $request->input('email'),
                 'password' => bcrypt($request->input('password')),
                 'telefon'  => $request->input('telefon'),
+                'adresa'  => $request->input('adresa'),
+                'about'    => $request->input('about'),
+                'dodatno'    => $request->input('dodatno'),
+                'edukacija'    => $request->input('edukacija'),
+                'vjestine'     => $request->input('vjestine'),
+                'titula'    => $request->input('titula'),
+                'spol'    => $request->input('spol'),
                 'role'     => $request->input('role')
             ]);
             $user->save();
         }
         catch(\Exception $e){
-            return response()->json("Greška prilikom spremanja korisnika!", 500);
+            return response()->json("Greška prilikom spremanja korisnika!" . $e->getMessage(), 500);
         }
 
         return response()->json($user, 200);
@@ -91,6 +116,13 @@ class UserController extends Controller
             'email'    => $request->input('email'),
             'password' => bcrypt($request->input('password')),
             'telefon'  => $request->input('telefon'),
+            'adresa'  => $request->input('adresa'),
+            'about'    => $request->input('about'),
+            'dodatno'    => $request->input('dodatno'),
+            'edukacija'    => $request->input('edukacija'),
+            'vjestine'     => $request->input('vjestine'),
+            'titula'    => $request->input('titula'),
+            'spol'    => $request->input('spol'),
             'role'     => $request->input('role')
         ]);
 

@@ -23,6 +23,10 @@ class CreateUsersTable extends Migration
             $table->string('edukacija');
             $table->string('adresa');
             $table->string('vjestine');
+            $table->text('about');
+            $table->string('titula');
+            $table->text('dodatno');
+            $table->string('spol');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

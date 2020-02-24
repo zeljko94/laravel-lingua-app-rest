@@ -21,6 +21,10 @@ class UsersTableSeeder extends Seeder
             'vjestine' => '1,2,3,4',
             'password' => bcrypt('asd123'),
             'telefon' => '064 234 234',
+            'about'   => 'about me...',
+            'dodatno' => 'dodatane informacije...',
+            'titula'  => 'prof. dr. sc.',
+            'spol'    => 'M',
             'RFID' => '111111111111',
             'role' => 'admin'
         ]);
@@ -37,6 +41,10 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('asd123'),
             'telefon' => '064 234 234',
             'RFID' => '222222222222',
+            'about'   => 'about me...',
+            'dodatno' => 'dodatane informacije...',
+            'titula'  => 'prof. dr. sc.',
+            'spol'    => 'M',
             'role' => 'predavac'
         ]);
         $user->save();
@@ -51,6 +59,10 @@ class UsersTableSeeder extends Seeder
             'vjestine' => '1,2,3,4',
             'password' => bcrypt('asd123'),
             'telefon' => '064 234 234',
+            'about'   => 'about me...',
+            'dodatno' => 'dodatane informacije...',
+            'titula'  => 'prof. dr. sc.',
+            'spol'    => 'M',
             'RFID' => '333333333333',
             'role' => 'user'
         ]);
