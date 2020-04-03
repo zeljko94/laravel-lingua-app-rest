@@ -49,11 +49,67 @@ class UsersTableSeeder extends Seeder
         ]);
         $user->save();
 
+        $user =   new User([
+            'name' => 'Predavac2',
+            'lastname' => 'Predavac2',
+            'email' => 'predavac2@gmail.com',
+            'adresa' => 'Ugljara 202b',
+            'edukacija' => 'FPMOZ Informatika',
+            'vjestine' => '1,2,3,4',
+            'password' => bcrypt('asd123'),
+            'telefon' => '064 234 234',
+            'RFID' => '222222222222',
+            'about'   => 'about me...',
+            'dodatno' => 'dodatane informacije...',
+            'titula'  => 'prof. dr. sc.',
+            'spol'    => 'Ž',
+            'role' => 'predavac'
+        ]);
+        $user->save();
+
+        
+
         
         $user =   new User([
             'name' => 'User1',
             'lastname' => 'User1',
             'email' => 'user1@gmail.com',
+            'adresa' => 'Ugljara 202b',
+            'edukacija' => 'FPMOZ Informatika',
+            'vjestine' => '1,2,3,4',
+            'password' => bcrypt('asd123'),
+            'telefon' => '064 234 234',
+            'about'   => 'about me...',
+            'dodatno' => 'dodatane informacije...',
+            'titula'  => 'prof. dr. sc.',
+            'spol'    => 'M',
+            'RFID' => '333333333333',
+            'role' => 'user'
+        ]);
+        $user->save();
+                
+        $user =   new User([
+            'name' => 'User2',
+            'lastname' => 'User2',
+            'email' => 'user2@gmail.com',
+            'adresa' => 'Ugljara 202b',
+            'edukacija' => 'FPMOZ Informatika',
+            'vjestine' => '1,2,3,4',
+            'password' => bcrypt('asd123'),
+            'telefon' => '064 234 234',
+            'about'   => 'about me...',
+            'dodatno' => 'dodatane informacije...',
+            'titula'  => 'prof. dr. sc.',
+            'spol'    => 'M',
+            'RFID' => '333333333333',
+            'role' => 'user'
+        ]);
+        $user->save();
+                
+        $user =   new User([
+            'name' => 'User3',
+            'lastname' => 'User3',
+            'email' => 'user3@gmail.com',
             'adresa' => 'Ugljara 202b',
             'edukacija' => 'FPMOZ Informatika',
             'vjestine' => '1,2,3,4',

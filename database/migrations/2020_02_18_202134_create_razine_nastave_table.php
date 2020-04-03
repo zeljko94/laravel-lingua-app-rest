@@ -14,9 +14,9 @@ class CreateRazineNastaveTable extends Migration
     public function up()
     {
         Schema::create('razine-nastave', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('naziv');
-            $table->string('opis');
+            $table->string('opis')->default('');
             $table->timestamps();
         });
     }

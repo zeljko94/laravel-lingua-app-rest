@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUcioniceTable extends Migration
+class CreateForumiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateUcioniceTable extends Migration
      */
     public function up()
     {
-        Schema::create('ucionice', function (Blueprint $table) {
+        Schema::create('forumi', function (Blueprint $table) {
             $table->increments('id');
             $table->string('naziv');
-            $table->string('opis')->default('');
-            $table->string('color');
+            $table->string('sudionici');
+            $table->integer('kreatorID')->unsigned();
+            $table->foreign('kreatorID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateUcioniceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ucionice');
+        Schema::dropIfExists('forumi');
     }
 }

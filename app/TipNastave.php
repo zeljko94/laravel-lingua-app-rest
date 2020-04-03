@@ -11,4 +11,8 @@ class TipNastave extends Model
         'naziv', 'opis'
     ];
 
+    public function tecaj()
+    {
+        return $this->hasMany(Tecaj::class, 'tipNastaveID');
+    }
 }

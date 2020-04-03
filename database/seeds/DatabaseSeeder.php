@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
          $this->call(UcioniceTableSeeder::class);
          $this->call(TipoviNastaveTableSeeder::class);
          $this->call(RazineNastaveTableSeeder::class);
+         $this->call(VjestineTableSeeder::class);
     }
 }

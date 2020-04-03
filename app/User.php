@@ -38,4 +38,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function tecajevi()
+    {
+        return $this->belongsToMany(Tecaj::class, 'tecaj_sudionici')->withTimestamps();
+    }
+
+    public function tecaj()
+    {
+        return $this->hasMany(Tecaj::class, 'predavacID');
+    }
+
+    // forumi u kojima je korisnik sudionik
+    public function forumi()
+    {
+        return $this->belongsToMany(Forum::class, 'forum_sudionici')->withTimestamps();
+    }
+
+    // forumi kojima je korisnik kreator
+    public function forum()
+    {
+        return $this->hasMany(Tecaj::class, 'kreatorID');
+    }
+
 }

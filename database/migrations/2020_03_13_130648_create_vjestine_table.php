@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUcioniceTable extends Migration
+class CreateVjestineTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateUcioniceTable extends Migration
      */
     public function up()
     {
-        Schema::create('ucionice', function (Blueprint $table) {
+        Schema::create('vjestine', function (Blueprint $table) {
             $table->increments('id');
             $table->string('naziv');
-            $table->string('opis')->default('');
-            $table->string('color');
+            $table->text('opis')->default('');
+            $table->string('icon')->default('');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateUcioniceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ucionice');
+        Schema::dropIfExists('vjestine');
     }
 }

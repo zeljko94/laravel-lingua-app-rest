@@ -10,4 +10,9 @@ class RazinaNastave extends Model
     protected $fillable = [
         'naziv', 'opis'
     ];
+
+    public function tecaj()
+    {
+        return $this->hasMany(Tecaj::class, 'razinaNastaveID');
+    }
 }
